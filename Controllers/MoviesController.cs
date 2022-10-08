@@ -27,9 +27,7 @@ namespace MoviesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            //***************
             var movies = await _moviesService.GetAll();
-            // Map movies to MovieDetailsDto
 
             var data = _mapper.Map<IEnumerable<MovieDetailsDto>>(movies);
 
@@ -49,14 +47,11 @@ namespace MoviesApi.Controllers
             return Ok(dto);
         }
 
-        //*********************************
 
-        [HttpGet("GetByGenreId")]  // لما بعمل كدا ببعتها عن طريق الكويري استرينج
-                                   // مش ف السيجمينت
+        [HttpGet("GetByGenreId")]  
         public async Task<IActionResult> GetByGenreIdAsync(byte GenreId)
         {
             var movies = await _moviesService.GetAll(GenreId);
-            // Map movies to MovieDetailsDto
 
             var data = _mapper.Map<IEnumerable<MovieDetailsDto>>(movies);
 
@@ -66,7 +61,7 @@ namespace MoviesApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm] MovieDto dto)  // *******************
+        public async Task<IActionResult> CreateAsync([FromForm] MovieDto dto)  
         {
             if (dto.Poster == null)
                 return BadRequest("Poster is required");

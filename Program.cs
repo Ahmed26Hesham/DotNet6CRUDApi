@@ -47,7 +47,6 @@ namespace MoviesApi
 
                 });
 
-                //  JWT , tokens
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
@@ -92,7 +91,6 @@ namespace MoviesApi
 
             app.UseHttpsRedirection();
 
-            // ÚÔÇä Çí äíÊææÑß È ÈæÑÊ ÊÇäí íßáãäí ÇÈáíßíÔä ÝÑæäÊ ãËáÇ
             app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseAuthorization();
 

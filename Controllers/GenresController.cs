@@ -25,7 +25,7 @@ namespace MoviesApi.Controllers
 
         }
 
-        [HttpPost]                      // نوع ال endpoint
+        [HttpPost]                      
         public async Task<IActionResult> CreateAsync(GenreDto dto)
         {
             var genre = new Genre
@@ -61,7 +61,6 @@ namespace MoviesApi.Controllers
             if (genre == null)
                 return NotFound($"No genre was found with {id}");
 
-            // **************
             _genresService.Delete(genre);
 
             return Ok(genre);
