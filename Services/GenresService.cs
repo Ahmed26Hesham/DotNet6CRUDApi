@@ -21,7 +21,7 @@ namespace MoviesApi.Services
 
         public Genre Delete(Genre genre)
         {
-            _context.Update(genre);
+            _context.Remove(genre);
             _context.SaveChanges();
 
             return genre;
